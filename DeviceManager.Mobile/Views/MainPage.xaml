@@ -1,0 +1,138 @@
+﻿<ContentPage
+    x:Class="DeviceManager.Mobile.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:DeviceManager.Mobile.Models"
+    xmlns:viewmodels="clr-namespace:DeviceManager.Mobile.ViewModels"
+    Title="Dispositivos"
+    x:DataType="viewmodels:DeviceViewModel">
+
+    <Shell.TitleView>
+        <Grid Padding="10,0" ColumnDefinitions="*,Auto">
+            <Label
+                FontAttributes="Bold"
+                FontSize="20"
+                HorizontalOptions="Start"
+                Text="Dispositivos"
+                VerticalOptions="Center" />
+            <ActivityIndicator
+                Grid.Column="1"
+                HeightRequest="20"
+                HorizontalOptions="End"
+                IsRunning="{Binding EstaSincronizando}"
+                IsVisible="{Binding EstaSincronizando}"
+                VerticalOptions="Center"
+                WidthRequest="20"
+                Color="Black" />
+        </Grid>
+    </Shell.TitleView>
+
+    <Grid>
+
+        <!--  Conteúdo principal  -->
+        <ScrollView>
+            <VerticalStackLayout Padding="10" Spacing="15">
+
+                <!--  Botão de Sincronizar  -->
+                <Button
+                    BackgroundColor="#512BD4"
+                    Command="{Binding SincronizarCommand}"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    HeightRequest="45"
+                    Text="Sincronizar"
+                    TextColor="White" />
+
+                <!--  Lista de dispositivos  -->
+                <CollectionView ItemsSource="{Binding Dispositivos}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:DispositivoRealm">
+                            <SwipeView>
+                                <SwipeView.RightItems>
+                                    <SwipeItems>
+                                        <SwipeItem
+                                            BackgroundColor="Red"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:DeviceViewModel}}, Path=ExcluirDispositivoCommand}"
+                                            CommandParameter="{Binding .}"
+                                            Text="Excluir" />
+                                        <SwipeItem
+                                            BackgroundColor="Orange"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:DeviceViewModel}}, Path=EditarDispositivoCommand}"
+                                            CommandParameter="{Binding .}"
+                                            Text="Editar" />
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                <Grid Padding="10" ColumnDefinitions="Auto,*,Auto">
+                                    <Image
+                                        Margin="-5,0,15,0"
+                                        HeightRequest="30"
+                                        Source="{Binding IsSynced, Converter={StaticResource BoolToStatusIconConverter}}"
+                                        WidthRequest="30" />
+                                    <StackLayout Grid.Column="1">
+                                        <Label FontSize="18" Text="{Binding Descricao}" />
+                                        <Label
+                                            FontSize="14"
+                                            Text="{Binding CodigoReferencia}"
+                                            TextColor="Gray" />
+                                    </StackLayout>
+                                </Grid>
+                            </SwipeView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!--  Botão flutuante de adicionar  -->
+        <Button
+            Margin="20"
+            BackgroundColor="#218621"
+            Command="{Binding AdicionarDispositivoCommand}"
+            CornerRadius="20"
+            FontAutoScalingEnabled="True"
+            FontSize="30"
+            HeightRequest="60"
+            HorizontalOptions="End"
+            SemanticProperties.Hint="Adicionar dispositivo"
+            Text="+"
+            TextColor="White"
+            VerticalOptions="End"
+            WidthRequest="60" />
+
+        <!--  Popup de Log  -->
+        <Grid
+            Padding="20"
+            BackgroundColor="#80000000"
+            HorizontalOptions="FillAndExpand"
+            IsVisible="{Binding ExibirLogs}"
+            VerticalOptions="FillAndExpand">
+            <Frame
+                Padding="15"
+                BackgroundColor="White"
+                CornerRadius="10"
+                HasShadow="True"
+                HeightRequest="420"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="320">
+                <Grid RowDefinitions="Auto,*,Auto">
+                    <Label
+                        Grid.Row="0"
+                        Margin="0,0,0,10"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        Text="Log de Sincronização" />
+                    <ScrollView Grid.Row="1">
+                        <Label FontSize="14" Text="{Binding LogSincronizacao}" />
+                    </ScrollView>
+                    <Button
+                        Grid.Row="2"
+                        Margin="0,10,0,0"
+                        Clicked="FecharPopup"
+                        Text="Fechar" />
+                </Grid>
+            </Frame>
+        </Grid>
+
+    </Grid>
+</ContentPage>

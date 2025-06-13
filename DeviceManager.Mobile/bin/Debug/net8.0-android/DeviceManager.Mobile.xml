@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DeviceManager.Mobile</name>
+    </assembly>
+    <members>
+        <member name="T:DeviceManager.Mobile.ViewModels.DeviceFormViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:DeviceManager.Mobile.ViewModels.DeviceFormViewModel.Descricao">
+            <inheritdoc cref="F:DeviceManager.Mobile.ViewModels.DeviceFormViewModel.descricao"/>
+        </member>
+        <member name="P:DeviceManager.Mobile.ViewModels.DeviceFormViewModel.CodigoReferencia">
+            <inheritdoc cref="F:DeviceManager.Mobile.ViewModels.DeviceFormViewModel.codigoReferencia"/>
+        </member>
+        <member name="P:DeviceManager.Mobile.ViewModels.DeviceFormViewModel.IsEditando">
+            <inheritdoc cref="F:DeviceManager.Mobile.ViewModels.DeviceFormViewModel.isEditando"/>
+        </member>
+        <member name="M:DeviceManager.Mobile.ViewModels.DeviceFormViewModel.OnDescricaoChanged(System.String)">
+            <summary>Executes the logic for when <see cref="P:DeviceManager.Mobile.ViewModels.DeviceFormViewModel.Descricao"/> just changed.</summary>
+            <param name="value">The new property value that was set.</param>
+            <remarks>This method is invoked right after the value of <see cref="P:DeviceManager.Mobile.ViewModels.DeviceFormViewModel.Descricao"/> is changed.</remarks>
+        </member>
+        <member name="M:DeviceManager.Mobile.ViewModels.DeviceFormViewModel.OnCodigoReferenciaChanged(System.String)">
+            <summary>Executes the logic for when <see cref="P:DeviceManager.Mobile.ViewModels.DeviceFormViewModel.CodigoReferencia"/> just changed.</summary>
+            <param name="value">The new property value that was set.</param>
+            <remarks>This method is invoked right after the value of <see cref="P:DeviceManager.Mobile.ViewModels.DeviceFormViewModel.CodigoReferencia"/> is changed.</remarks>
+        </member>
+        <member name="F:DeviceManager.Mobile.ViewModels.DeviceFormViewModel.salvarCommand">
+            <summary>The backing field for <see cref="P:DeviceManager.Mobile.ViewModels.DeviceFormViewModel.SalvarCommand"/>.</summary>
+        </member>
+        <member name="P:DeviceManager.Mobile.ViewModels.DeviceFormViewModel.SalvarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:DeviceManager.Mobile.ViewModels.DeviceFormViewModel.Salvar"/>.</summary>
+        </member>
+        <member name="T:DeviceManager.Mobile.ViewModels.DeviceViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:DeviceManager.Mobile.ViewModels.DeviceViewModel.LogSincronizacao">
+            <inheritdoc cref="F:DeviceManager.Mobile.ViewModels.DeviceViewModel.logSincronizacao"/>
+        </member>
+        <member name="P:DeviceManager.Mobile.ViewModels.DeviceViewModel.ExibirLogs">
+            <inheritdoc cref="F:DeviceManager.Mobile.ViewModels.DeviceViewModel.exibirLogs"/>
+        </member>
+        <member name="P:DeviceManager.Mobile.ViewModels.DeviceViewModel.Dispositivos">
+            <inheritdoc cref="F:DeviceManager.Mobile.ViewModels.DeviceViewModel.dispositivos"/>
+        </member>
+        <member name="F:DeviceManager.Mobile.ViewModels.DeviceViewModel.adicionarDispositivoCommand">
+            <summary>The backing field for <see cref="P:DeviceManager.Mobile.ViewModels.DeviceViewModel.AdicionarDispositivoCommand"/>.</summary>
+        </member>
+        <member name="P:DeviceManager.Mobile.ViewModels.DeviceViewModel.AdicionarDispositivoCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:DeviceManager.Mobile.ViewModels.DeviceViewModel.AdicionarDispositivo"/>.</summary>
+        </member>
+        <member name="F:DeviceManager.Mobile.ViewModels.DeviceViewModel.editarDispositivoCommand">
+            <summary>The backing field for <see cref="P:DeviceManager.Mobile.ViewModels.DeviceViewModel.EditarDispositivoCommand"/>.</summary>
+        </member>
+        <member name="P:DeviceManager.Mobile.ViewModels.DeviceViewModel.EditarDispositivoCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:DeviceManager.Mobile.ViewModels.DeviceViewModel.EditarDispositivo(DeviceManager.Mobile.Models.DispositivoRealm)"/>.</summary>
+        </member>
+        <member name="F:DeviceManager.Mobile.ViewModels.DeviceViewModel.excluirDispositivoCommand">
+            <summary>The backing field for <see cref="P:DeviceManager.Mobile.ViewModels.DeviceViewModel.ExcluirDispositivoCommand"/>.</summary>
+        </member>
+        <member name="P:DeviceManager.Mobile.ViewModels.DeviceViewModel.ExcluirDispositivoCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:DeviceManager.Mobile.ViewModels.DeviceViewModel.ExcluirDispositivo(DeviceManager.Mobile.Models.DispositivoRealm)"/>.</summary>
+        </member>
+        <member name="F:DeviceManager.Mobile.ViewModels.DeviceViewModel.sincronizarCommand">
+            <summary>The backing field for <see cref="P:DeviceManager.Mobile.ViewModels.DeviceViewModel.SincronizarCommand"/>.</summary>
+        </member>
+        <member name="P:DeviceManager.Mobile.ViewModels.DeviceViewModel.SincronizarCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:DeviceManager.Mobile.ViewModels.DeviceViewModel.SincronizarAsync"/>.</summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Descricao">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Descricao" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CodigoReferencia">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CodigoReferencia" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsEditando">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsEditando" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.LogSincronizacao">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "LogSincronizacao" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ExibirLogs">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ExibirLogs" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Dispositivos">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Dispositivos" generated properties.</summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Descricao">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Descricao" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CodigoReferencia">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CodigoReferencia" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsEditando">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsEditando" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.LogSincronizacao">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "LogSincronizacao" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ExibirLogs">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ExibirLogs" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Dispositivos">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Dispositivos" generated properties.</summary>
+        </member>
+    </members>
+</doc>

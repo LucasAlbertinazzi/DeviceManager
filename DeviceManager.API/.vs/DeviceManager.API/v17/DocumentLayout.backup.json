@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\PESSOAL\\LUCAS\\VSoft\\Projetos\\DeviceManager.API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{29B76D5B-F114-43A2-BD29-5CBA7BFD6E10}|DeviceManager.API.csproj|d:\\pessoal\\lucas\\vsoft\\projetos\\devicemanager.api\\controllers\\dispositivoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29B76D5B-F114-43A2-BD29-5CBA7BFD6E10}|DeviceManager.API.csproj|solutionrelative:controllers\\dispositivoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DispositivosController.cs",
+              "DocumentMoniker": "D:\\PESSOAL\\LUCAS\\VSoft\\Projetos\\DeviceManager.API\\Controllers\\DispositivosController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DispositivosController.cs",
+              "ToolTip": "D:\\PESSOAL\\LUCAS\\VSoft\\Projetos\\DeviceManager.API\\Controllers\\DispositivosController.cs",
+              "RelativeToolTip": "Controllers\\DispositivosController.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAwwJIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-13T16:25:45.581Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

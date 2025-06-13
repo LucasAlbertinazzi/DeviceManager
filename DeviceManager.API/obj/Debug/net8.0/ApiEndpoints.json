@@ -1,0 +1,133 @@
+[
+  {
+    "ContainingType": "DeviceManager.API.Controllers.DispositivosController",
+    "Method": "Get",
+    "RelativePath": "api/Dispositivos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DeviceManager.API.Controllers.DispositivosController",
+    "Method": "Post",
+    "RelativePath": "api/Dispositivos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dispositivo",
+        "Type": "DeviceManager.API.Models.Dispositivo",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DeviceManager.API.Controllers.DispositivosController",
+    "Method": "Get",
+    "RelativePath": "api/Dispositivos/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DeviceManager.API.Controllers.DispositivosController",
+    "Method": "Put",
+    "RelativePath": "api/Dispositivos/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "dispositivo",
+        "Type": "DeviceManager.API.Models.Dispositivo",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DeviceManager.API.Controllers.DispositivosController",
+    "Method": "Delete",
+    "RelativePath": "api/Dispositivos/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DeviceManager.API.Controllers.DispositivosController",
+    "Method": "Ping",
+    "RelativePath": "api/Dispositivos/ping",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DeviceManager.API.Controllers.DispositivosController",
+    "Method": "GetByCodigoReferencia",
+    "RelativePath": "api/Dispositivos/por-referencia/{codigo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "codigo",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DeviceManager.API.Models.Dispositivo",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DeviceManager.API.Controllers.DispositivosController",
+    "Method": "Sincronizar",
+    "RelativePath": "api/Dispositivos/sync",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dispositivos",
+        "Type": "System.Collections.Generic.List\u00601[[DeviceManager.API.Models.Dispositivo, DeviceManager.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

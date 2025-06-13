@@ -1,0 +1,183 @@
+﻿@page "/"
+@inject DispositivoService DispositivoService
+@using DeviceManager.Web.Models
+@using DeviceManager.Web.Services
+
+<div class="home-container">
+    <h2 class="home-title">📱 Gerenciador de Dispositivos</h2>
+
+    <div class="home-card">
+        <h3>@(Editando ? "Editar Dispositivo" : "Novo Dispositivo")</h3>
+
+        @if (novoDispositivo != null)
+        {
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Descrição:</label>
+                    <input type="text" class="input-field" @bind="novoDispositivo.Descricao" />
+                </div>
+
+                <div class="form-group">
+                    <label>Código de Referência:</label>
+                    <input type="text" class="input-field" @bind="novoDispositivo.CodigoReferencia" />
+                </div>
+            </div>
+
+            <button type="button" class="btn-save" @onclick="SalvarDispositivo">
+                @(Editando ? "✅ Atualizar" : "💾 Salvar")
+            </button>
+
+            @if (!string.IsNullOrEmpty(mensagemErro))
+            {
+                <p class="mensagem-erro">@mensagemErro</p>
+            }
+
+            @if (Editando)
+            {
+                <button type="button" class="btn-cancel" @onclick="CancelarEdicao">❌ Cancelar Edição</button>
+            }
+        }
+    </div>
+
+    <div class="home-card">
+        <h3>Dispositivos Cadastrados</h3>
+
+        @if (dispositivos == null)
+        {
+            <p><em>Carregando dispositivos...</em></p>
+        }
+        else if (!dispositivos.Any())
+        {
+            <p class="text-muted">Nenhum dispositivo encontrado.</p>
+        }
+        else
+        {
+            <div class="table-wrapper">
+                <table class="device-table">
+                    <thead>
+                        <tr>
+                            <th>Descrição</th>
+                            <th>Código</th>
+                            <th>Criado em</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var d in dispositivos)
+                        {
+                            <tr>
+                                <td>@d.Descricao</td>
+                                <td>@d.CodigoReferencia</td>
+                                <td>@d.DataCriacao.ToString("dd/MM/yyyy")</td>
+                                <td>
+                                    <button class="btn-update" @onclick="@(() => CarregarParaEdicao(d))">✏️ Atualizar</button>
+                                    <button class="btn-delete" @onclick="@(() => ExcluirDispositivo(d.Id))">🗑️ Excluir</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private List<Dispositivo> dispositivos;
+    private Dispositivo novoDispositivo;
+    private string mensagemErro;
+
+    private bool Editando => !string.IsNullOrEmpty(novoDispositivo?.Id);
+
+    protected override async Task OnInitializedAsync()
+    {
+        IniciarNovoFormulario();
+        await CarregarDispositivos();
+    }
+
+    private void IniciarNovoFormulario()
+    {
+        novoDispositivo = new Dispositivo
+            {
+                Id = null,
+                Descricao = string.Empty,
+                CodigoReferencia = Guid.NewGuid().ToString(),
+                DataCriacao = DateTimeOffset.UtcNow,
+                IsDeleted = false
+            };
+    }
+
+    private async Task CarregarDispositivos()
+    {
+        var lista = await DispositivoService.GetAllAsync();
+        dispositivos = lista.OrderByDescending(x => x.DataCriacao).ToList();
+    }
+
+    private async Task SalvarDispositivo()
+    {
+        mensagemErro = string.Empty;
+
+        if (string.IsNullOrWhiteSpace(novoDispositivo.Descricao) ||
+            string.IsNullOrWhiteSpace(novoDispositivo.CodigoReferencia))
+        {
+            mensagemErro = "Preencha todos os campos obrigatórios.";
+            return;
+        }
+
+        try
+        {
+            var existente = await DispositivoService.GetByCodigoReferenciaAsync(novoDispositivo.CodigoReferencia);
+            var isNovo = string.IsNullOrEmpty(novoDispositivo.Id);
+
+            if (existente != null && (isNovo || existente.Id != novoDispositivo.Id))
+            {
+                mensagemErro = "Já existe um dispositivo com esse código de referência.";
+                return;
+            }
+
+            if (isNovo)
+            {
+                novoDispositivo.DataCriacao = DateTimeOffset.UtcNow;
+                novoDispositivo.IsDeleted = false;
+                await DispositivoService.CreateAsync(novoDispositivo);
+            }
+            else
+            {
+                novoDispositivo.DataAtualizacao = DateTimeOffset.UtcNow;
+                await DispositivoService.UpdateAsync(novoDispositivo.Id, novoDispositivo);
+            }
+
+            await CarregarDispositivos();
+            IniciarNovoFormulario();
+        }
+        catch (Exception ex)
+        {
+            mensagemErro = "Erro ao salvar: " + ex.Message;
+        }
+
+        StateHasChanged();
+    }
+
+    private void CarregarParaEdicao(Dispositivo dispositivo)
+    {
+        novoDispositivo = new Dispositivo
+            {
+                Id = dispositivo.Id,
+                Descricao = dispositivo.Descricao,
+                CodigoReferencia = dispositivo.CodigoReferencia,
+                DataCriacao = dispositivo.DataCriacao,
+                IsDeleted = dispositivo.IsDeleted
+            };
+    }
+
+    private async Task ExcluirDispositivo(string id)
+    {
+        await DispositivoService.DeleteAsync(id);
+        await CarregarDispositivos();
+    }
+
+    private void CancelarEdicao()
+    {
+        IniciarNovoFormulario();
+    }
+}

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "8Cpmy8cvH6c=",
+  "success": true,
+  "projectFilePath": "D:\\PESSOAL\\LUCAS\\VSoft\\Projetos\\DeviceManager.Web\\DeviceManager.Web.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lucas\\.nuget\\packages\\microsoft.net.sdk.compilers.toolset\\9.0.301\\microsoft.net.sdk.compilers.toolset.9.0.301.nupkg.sha512"
+  ],
+  "logs": []
+}

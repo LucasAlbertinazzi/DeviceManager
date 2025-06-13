@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DeviceManager.Mobile.Views.DeviceFormPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:DeviceManager.Mobile.ViewModels"
+    Title="Dispositivo"
+    x:DataType="viewmodels:DeviceFormViewModel">
+
+    <StackLayout Padding="20" Spacing="15">
+
+        <Label Text="Descrição" />
+        <Entry
+            Placeholder="Descrição"
+            Text="{Binding Descricao}"
+            TextColor="{Binding DescricaoInvalida, Converter={StaticResource BoolToColorConverter}}" />
+
+        <Label Text="Código de Referência" />
+        <Entry
+            Placeholder="Código de Referência"
+            Text="{Binding CodigoReferencia}"
+            TextColor="{Binding CodigoReferenciaInvalido, Converter={StaticResource BoolToColorConverter}}" />
+
+        <Button
+            BackgroundColor="Green"
+            Command="{Binding SalvarCommand}"
+            Text="Salvar"
+            TextColor="White" />
+    </StackLayout>
+
+</ContentPage>
